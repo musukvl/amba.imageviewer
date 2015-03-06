@@ -37,9 +37,6 @@
 
     function createScrollBox() {
         if (!$box.length) {
-            // preload loader-gif
-            var loader = new Image();
-            loader.src = "img/loader.gif";
 
             $overlay = $('<div id="scroll-view-overlay"></div>');
             var $html = $(

@@ -111,9 +111,6 @@ log.enabled = false;;
 
     function createScrollBox() {
         if (!$box.length) {
-            // preload loader-gif
-            var loader = new Image();
-            loader.src = "img/loader.gif";
 
             $overlay = $('<div id="scroll-view-overlay"></div>');
             var $html = $(
@@ -265,6 +262,7 @@ log.enabled = false;;
 
             if (!imageIsLoaded(img)) {
                 log.write("show loader", {for_src: img.src});
+                //TODO: loader img path
                 $img.attr('src', "img/loader.gif");
                 openPopup();
             }

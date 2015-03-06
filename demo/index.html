@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>Amba.ImageViewer Demo</title>
-        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
-          <script src="jquery.min.js"></script>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      
+        <script src="jquery.min.js"></script>
         <script src="jquery.mousewheel.min.js"></script>
         <script src="amba.imageviewer.js"></script>
         <link href="amba.imageviewer.css" type="text/css" rel="stylesheet"/>
 
+      <link rel="stylesheet" href="stylesheets/app.css" />
+      <script src="bower_components/modernizr/modernizr.js"></script>
        
     </head>
     <body>
+    <div class="row">
+
         <div>
-            Amba.ImageViewer 
+            <h1>Amba.ImageViewer</h1>
         </div>
         <pre>
            $('.popup').ambaImageViewer();
@@ -59,7 +65,7 @@
                 <img src="http://aiv.musuk.info/img/troll_small.jpg" alt="" />
             </a>
         </div>
-
+    </div>
         <script>
 
     $().ready(function () {
