@@ -1,78 +1,98 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>Amba.ImageViewer Demo</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      
-        <script src="jquery.min.js"></script>
-        <script src="jquery.mousewheel.min.js"></script>
-        <script src="amba.imageviewer.js"></script>
-        <link href="amba.imageviewer.css" type="text/css" rel="stylesheet"/>
+<head>
+    <title>Amba.ImageViewer Demo</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-      <link rel="stylesheet" href="stylesheets/app.css" />
-      <script src="bower_components/modernizr/modernizr.js"></script>
-       
-    </head>
-    <body>
-    <div class="row">
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic' rel='stylesheet' type='text/css'/>
+    <script src="jquery.min.js"></script>
+    <script src="jquery.mousewheel.min.js"></script>
+    <script src="amba.imageviewer.js"></script>
+    <link href="amba.imageviewer.css" type="text/css" rel="stylesheet"/>
 
-        <div>
-            <h1>Amba.ImageViewer</h1>
+    <link rel="stylesheet" href="stylesheets/app.css"/>
+    <script src="bower_components/modernizr/modernizr.js"></script>
+
+</head>
+<body>
+<nav class="top-bar" data-topbar role="navigation">
+    <ul class="title-area">
+        <li class="name">
+            <h1><a href="/">Amba.ImageViewer</a></h1>
+        </li>
+
+
+    </ul>
+</nav>
+
+<div class="row">
+    <div class="column">
+        <div class="panel">
+            <p>
+                JS Image Viewer with zoom on mouse scroll.
+            </p>
+
+            <p>
+                Sources:
+                <a href="https://github.com/musukvl/amba.imageviewer">https://github.com/musukvl/amba.imageviewer</a>
+            </p>
         </div>
+
         <pre>
            $('.popup').ambaImageViewer();
         </pre>
         <div>
             Single image usage.
         </div>
-        
+
         <div>
             <a href="http://aiv.musuk.info/img/ship.jpg" class="popup" id="1" alt="mega image">
-                <img src="http://aiv.musuk.info/img/ship_small.jpg"  alt="" />
+                <img src="http://aiv.musuk.info/img/ship_small.jpg" alt=""/>
             </a>
-            
+
             <a href="http://aiv.musuk.info/img/pan.jpg" class="popup" id="2">
-                <img src="http://aiv.musuk.info/img/pan_small.jpg" alt="" />
+                <img src="http://aiv.musuk.info/img/pan_small.jpg" alt=""/>
             </a>
             <a href="http://aiv.musuk.info/img/phone.png" class="popup" id="3" alt="super image">
-                <img src="http://aiv.musuk.info/img/phone_small.png" alt="" />
+                <img src="http://aiv.musuk.info/img/phone_small.png" alt=""/>
             </a>
             <a href="http://aiv.musuk.info/img/troll.jpg" class="popup" id="4">
-                <img src="http://aiv.musuk.info/img/troll_small.jpg" alt="" />
+                <img src="http://aiv.musuk.info/img/troll_small.jpg" alt=""/>
             </a>
         </div>
-        
+
         <p>
             Gallery usage:
         </p>
-        
+
         <div>
             <a href="http://aiv.musuk.info/img/ship.jpg" class="popup" id="5" data-group="1">
-                <img src="http://aiv.musuk.info/img/ship_small.jpg" alt="" />
+                <img src="http://aiv.musuk.info/img/ship_small.jpg" alt=""/>
             </a>
 
             <a href="http://aiv.musuk.info/img/pan.jpg" class="popup" id="6" data-group="1">
-                <img src="http://aiv.musuk.info/img/pan_small.jpg" alt="" />
+                <img src="http://aiv.musuk.info/img/pan_small.jpg" alt=""/>
             </a>
             <a href="http://aiv.musuk.info/img/pan2.jpg" class="popup" id="9" data-group="1">
-                <img src="http://aiv.musuk.info/img/pan2-small.JPG" alt="" />
+                <img src="http://aiv.musuk.info/img/pan2-small.JPG" alt=""/>
             </a>
             <a href="http://aiv.musuk.info/img/phone.png" class="popup" id="7" data-group="1">
-                <img src="http://aiv.musuk.info/img/phone_small.png" alt="" />
+                <img src="http://aiv.musuk.info/img/phone_small.png" alt=""/>
             </a>
             <a href="http://aiv.musuk.info/img/troll.jpg" class="popup" id="8" data-group="1">
-                <img src="http://aiv.musuk.info/img/troll_small.jpg" alt="" />
+                <img src="http://aiv.musuk.info/img/troll_small.jpg" alt=""/>
             </a>
         </div>
     </div>
-        <script>
+</div>
+<script>
 
     $().ready(function () {
         $('.popup').ambaImageViewer();
     });
 
-        </script>
+</script>
 
-    </body>
+</body>
 </html>
