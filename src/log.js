@@ -16,18 +16,18 @@ function Logger() {
 
     self.log = function(level, message) {
         self.write(level, message);
-    }
+    };
+
     self.debug = function (message) {
         self.write('debug', message);
-    }
+    };
+
     self.info = function(message) {
         self.write('info', message);
-    }
+    };
     
     self.error = function(message) {
         self.write('error', message);
     }
 };
-
 var log = new Logger();
-log.enabled = false;

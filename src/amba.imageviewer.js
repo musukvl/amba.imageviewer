@@ -11,9 +11,10 @@
 
     $(document).keyup(function (e) {
         if (e.keyCode == 13) { }     // enter
-        if (e.keyCode == 27) {
+        if (e.keyCode == 27) {       // esc
             hide();
         }
+        //TODO: next, prev, up (zoom), down(zoom), +/-(zoom)
     });
 
     function show() {
@@ -34,24 +35,22 @@
         $box.css({ top: top, left: left });
     }
 
-
     function createScrollBox() {
         if (!$box.length) {
-
             $overlay = $('<div id="scroll-view-overlay"></div>');
             var $html = $(
                 '<div id="scroll-view-box">' +
-                    '<img id="scroll-view-image" src=""/>' +
-                    '<div id="scroll-view-image-title"></div>' +
+                '<img id="scroll-view-image" src=""/>' +
+                '<div id="scroll-view-image-title"></div>' +
                 '<div id="scroll-view-close-button"><span>×</span></div>' +
-                    '<div id="scroll-view-next-button"></div>' +
-                    '<div id="scroll-view-prev-button"></div>' +
+                '<div id="scroll-view-next-button"></div>' +
+                '<div id="scroll-view-prev-button"></div>' +
                 '</div>');
             $html.hide();
             $overlay.hide();
             $('body').append($overlay);
             $('body').append($html);
-            
+
             $box = $('#scroll-view-box');
             $img = $('#scroll-view-image');
             $titleBox = $('#scroll-view-image-title');
@@ -66,7 +65,7 @@
             $closeButton.click(function() {
                 hide();
             });
-            
+
             $box.mousewheel(function (event) {
                 resize((event.deltaY < 0) ? -1 : 1, event.clientX, event.clientY);
                 event.preventDefault();
@@ -79,7 +78,7 @@
 
         var mouseX = clientX - ($box.offset().left - $window.scrollLeft());
         var mouseY = clientY - ($box.offset().top - $window.scrollTop());
-       
+
         var multiplier = 0.05 * zoomDirection;
         var width = $box.width();
         var paddingW = ($box.outerWidth() - $box.width()) / 2;
@@ -92,7 +91,7 @@
 
         var boxTop = $box.offset().top;
         var boxLeft = $box.offset().left;
-       
+
         $box.width(newWidth);
         $box.css({ top: boxTop - mouseYDelta - $window.scrollTop(), left: boxLeft - mouseXDelta - $window.scrollLeft() });
     }
@@ -106,7 +105,6 @@
         if (imgWidth == 0 || imgHeight == 0) {
             imgWidth = 128;
             imgHeight = 128; //TODO: loader size;
-            //return;
         }
 
         var paddingW = ($box.outerWidth() - $box.width());
@@ -148,7 +146,7 @@
         var self = this;
         self.$el = $(el);
         self.el = el;
-        self.id = self.$el.attr('id');
+        self.$img = self.$el.find('img');
 
         self.init = function () {
             self.options = $.extend({}, $.ambaImageViewer.defaultOptions, options);
@@ -169,7 +167,7 @@
             var nextIdx = options.groupIndex + 1 == options.group.length ? 0 : options.groupIndex + 1;
             var $nextPic = options.group[nextIdx];
             $nextPic.ambaImageViewer('open');
-        }
+        };
 
         self.prev = function () {
             if (!options.group) {
@@ -178,7 +176,7 @@
             var prevIdx = options.groupIndex == 0 ? options.group.length - 1 : options.groupIndex - 1;
             var $prevPic = options.group[prevIdx];
             $prevPic.ambaImageViewer('open');
-        }
+        };
 
         self.hide = function() {
             hide();
@@ -190,21 +188,20 @@
 
             if (!imageIsLoaded(img) && self.options.loaderImage) {
                 log.write("show loader", {for_src: img.src});
-
                 $img.attr('src', '');
                 $img.attr('src', self.options.loaderImage);
                 openPopup();
             }
-            
+
             waitImageLoad(img, function () {
                 $img.attr('src', img.src);
                 openPopup();
             });
-        }
+        };
 
         function openPopup() {
             // set image title from alt
-            var alt = self.$el.attr('alt');
+            var alt = self.$img.attr('alt');
             if (!alt) {
                 $titleBox.hide();
             } else {
@@ -212,7 +209,6 @@
                 $titleBox.show();
             }
             showOrHideNexPrevButtons();
-
             showBox();
         }
 
@@ -240,7 +236,7 @@
         }
 
         self.init();
-    }
+    };
 
     $.ambaImageViewer.defaultOptions = {
         loaderImage: "img/loader.gif"
@@ -299,6 +295,5 @@
             }
         });
     };
-
 
 })(jQuery);

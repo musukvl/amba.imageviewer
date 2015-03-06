@@ -22,12 +22,13 @@ Include amba.imageviewer to html with dependencies:
 ## Usage 
 
 Html:
-```
+```html
 <a href="http://aiv.musuk.info/img/ship.jpg" class="popup" data-group="1">
    <img src="http://aiv.musuk.info/img/ship_small.jpg" alt="" />
 </a>
 ```
 *data-group* - attribute with group id for gallery.
+*class="popup"* - a class to find image.
 
 JS:
 ```js

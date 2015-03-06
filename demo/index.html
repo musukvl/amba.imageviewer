@@ -14,21 +14,31 @@
     <link rel="stylesheet" href="stylesheets/app.css"/>
     <script src="bower_components/modernizr/modernizr.js"></script>
 
+    <style>
+        .name h1 a {
+            font-family: 'Lobster',cursive;
+            font-size: 28px;
+        }
+
+        .block {
+            margin-top:20px;
+        }
+
+    </style>
 </head>
 <body>
 <nav class="top-bar" data-topbar role="navigation">
     <ul class="title-area">
         <li class="name">
-            <h1><a href="/">Amba.ImageViewer</a></h1>
+            <h1><a href="/">Amba.ImageViewer Demo</a></h1>
         </li>
-
-
     </ul>
 </nav>
 
-<div class="row">
-    <div class="column">
-        <div class="panel">
+<div class="row block">
+    <div class="column small-12">
+
+        <section class="panel">
             <p>
                 JS Image Viewer with zoom on mouse scroll.
             </p>
@@ -37,15 +47,19 @@
                 Sources:
                 <a href="https://github.com/musukvl/amba.imageviewer">https://github.com/musukvl/amba.imageviewer</a>
             </p>
-        </div>
+            <p>
+                <code>$('.popup').ambaImageViewer();</code>
+            </p>
+        </section>
+    </div>
+</div>
+<div class="row block">
+    <div class="column small-12">
 
-        <pre>
-           $('.popup').ambaImageViewer();
-        </pre>
-        <div>
-            Single image usage.
-        </div>
 
+            <div>
+                <h2>Single image usage</h2>
+            </div>
         <div>
             <a href="http://aiv.musuk.info/img/ship.jpg" class="popup" id="1" alt="mega image">
                 <img src="http://aiv.musuk.info/img/ship_small.jpg" alt=""/>
@@ -62,13 +76,13 @@
             </a>
         </div>
 
-        <p>
-            Gallery usage:
-        </p>
+        <div>
+        <h2>Gallery usage</h2>
+        </div>
 
         <div>
-            <a href="http://aiv.musuk.info/img/ship.jpg" class="popup" id="5" data-group="1">
-                <img src="http://aiv.musuk.info/img/ship_small.jpg" alt=""/>
+            <a href="http://aiv.musuk.info/img/ship.jpg" class="popup" id="5" data-group="1" alt="Ship">
+                <img src="http://aiv.musuk.info/img/ship_small.jpg" />
             </a>
 
             <a href="http://aiv.musuk.info/img/pan.jpg" class="popup" id="6" data-group="1">
