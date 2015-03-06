@@ -178,7 +178,9 @@ log.enabled = false;;
 
         log.info({imgWidth: imgWidth, imgHeight: imgHeight});
         if (imgWidth == 0 || imgHeight == 0) {
-            return;
+            imgWidth = 128;
+            imgHeight = 128; //TODO: loader size;
+            //return;
         }
 
         var paddingW = ($box.outerWidth() - $box.width());

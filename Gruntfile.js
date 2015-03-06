@@ -1,5 +1,9 @@
 module.exports = function(grunt) {
 
+    var defaultTasks = ['concat', 'less', 'uglify', 'copy:demo', 'copy:libs' ];
+    var jsTasks = ['concat', 'uglify', 'copy:demo', 'copy:libs'];
+
+
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -48,6 +52,15 @@ module.exports = function(grunt) {
                 src: ['amba.*.js', 'amba.*.css'],
                 dest: './demo'
             }
+        },
+        watch: {
+            scripts: {
+                files: ['src/*.js'],
+                tasks: jsTasks,
+                options: {
+                    spawn: false
+                }
+            }
         }
     });
 
@@ -57,7 +70,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-watch');
     // Default task(s).
-    grunt.registerTask('default', ['concat', 'less', 'uglify', 'copy:demo', 'copy:libs' ]);
+    grunt.registerTask('default', defaultTasks);
 
 };
