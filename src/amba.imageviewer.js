@@ -186,10 +186,11 @@
             var img = new Image();
             img.src = self.imageSrc;
 
-            if (!imageIsLoaded(img)) {
+            if (!imageIsLoaded(img) && self.options.loaderImage) {
                 log.write("show loader", {for_src: img.src});
-                //TODO: loader img path
-                $img.attr('src', "img/loader.gif");
+
+                $img.attr('src', '');
+                $img.attr('src', self.options.loaderImage);
                 openPopup();
             }
             
@@ -240,6 +241,7 @@
     }
 
     $.ambaImageViewer.defaultOptions = {
+        loaderImage: "img/loader.gif"
     };
 
     $.fn.ambaImageViewer = function (options) {
